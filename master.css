@@ -50,6 +50,7 @@ section .form-group .form-item input[type="text"] {
   border: none;
   border-radius: 5px;
   box-shadow: inset 5px 5px 10px grey;
+  color: #fff;
 }
 
 section .form-group .form-item:nth-of-type(6) {
@@ -79,9 +80,9 @@ section .form-group .form-item input[type="radio"] {
 
 section .form-group .form-item input[type="text"]:focus {
   border: none;
-  border: 1px solid #f11;
+  /* border: 1px solid #f11; */
   outline: none;
-  background: lightgrey;
+  background: #555;
   box-shadow: 1px 1px 20px grey;
 }
 

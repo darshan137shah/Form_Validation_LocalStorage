@@ -69,6 +69,8 @@ button.addEventListener('click', function() {
     nodeMain.push(data);
     localStorage.app = JSON.stringify(nodeMain);
     appendToTable(data);
+    alert('Thank you! Your data has been saved');
+    dataList.reset();
   }
 
   function rejected(erData) {
