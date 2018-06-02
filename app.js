@@ -1,12 +1,30 @@
 var button = document.getElementById('save');
 
+// LocalStorage Data Fetcher
+var appendToTable = (dataToAppend) => {
+  var newData = document.querySelector(".data-group");
+  var newDiv = document.createElement("div");
+  newDiv.setAttribute('class', 'data-item-1');
+  for(let objData in dataToAppend) {
+      var newSpan = document.createElement("span");
+      newSpan.innerHTML = dataToAppend[objData];
+      newDiv.appendChild(newSpan);
+  }
+  newData.appendChild(newDiv);
+}
+
+// LocalStorage Coverage
 if(localStorage.app) {
     var nodeMain = JSON.parse(localStorage.app);
+    nodeMain.forEach(function(nodeMain) {
+      appendToTable(nodeMain);
+    })
+
 } else {
   nodeMain = [];
 }
 
-
+// On submission of the form
 button.addEventListener('click', function() {
   var dataList = document.getElementById('form');
   var nodeObj = {};
@@ -49,6 +67,7 @@ button.addEventListener('click', function() {
   function accepted(data) {
     nodeMain.push(data);
     localStorage.app = JSON.stringify(nodeMain);
+    appendToTable(data);
   }
 
   function rejected(erData) {
