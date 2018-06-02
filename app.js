@@ -2,6 +2,7 @@ var button = document.getElementById('save');
 
 // LocalStorage Data Fetcher
 var appendToTable = (dataToAppend) => {
+  document.querySelector('div.data-group').style.display = 'block';
   var newData = document.querySelector(".data-group");
   var newDiv = document.createElement("div");
   newDiv.setAttribute('class', 'data-item-1');
@@ -19,16 +20,16 @@ if(localStorage.app) {
     nodeMain.forEach(function(nodeMain) {
       appendToTable(nodeMain);
     })
-
 } else {
+  document.querySelector('div.data-group').style.display = 'none';
   nodeMain = [];
 }
 
 // On submission of the form
 button.addEventListener('click', function() {
   var dataList = document.getElementById('form');
-  var nodeObj = {};
-  var val = [];
+  var nodeObj = {}; //onSuccess identifier
+  var val = []; //onReject identifier
   var err = "<p id='errPara'> Please fill the details </p>";
 
   // validator check
@@ -41,7 +42,7 @@ button.addEventListener('click', function() {
 
   // fetching data and validation
   for(let data of dataList) {
-    if (data.type == "text" && data.value !== "") {
+    if (data.type == "text" && data.value != "" && data.value != " ") {
       nodeObj[data.name] = data.value;
     } else if(data.type == "text") {
       val.push(data.name);

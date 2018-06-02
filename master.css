@@ -5,24 +5,23 @@
 }
 
 html {
-  background: url('./img/bodyBG.jpg') center;
-  background-position: top;
-  background-size:cover;
+  /* background-position: top; */
 }
 
 body {
-  width: 80%;
+  width: 100%;
   height: 100vh;
-  margin: 0 auto;
+  background: url('./img/bodyBG.jpg') center;
+  background-size:cover;
   font-family: calibri;
 }
 
 section {
-  width: 100%;
+  width: 80%;
   height: 100%;
   border-radius: 10px;
-  overflow: auto;
   padding: 20px 20px;
+  margin: 0 auto;
 }
 
 section .form-group{
@@ -40,26 +39,61 @@ section .data-group {
 section .form-group .form-item{
   width: 100%;
   padding-top: 40px;
+  color: white;
 }
 
 section .form-group .form-item input[type="text"] {
   width: 20%;
   padding: 10px 10px;
-  border: none;
-  background: lightgrey;
-  border-radius: 5px;
+  background: grey;
   font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: inset 5px 5px 10px grey;
+}
+
+section .form-group .form-item:nth-of-type(6) {
+  width: 20%;
+  margin: 20px auto;
+  padding: 20px 0;
+  /* border: 2px solid white; */
+  position: relative;
+}
+
+section .form-group .form-item:nth-of-type(6)::before {
+  display: block;
+  content: "*";
+  color: white;
+  position: absolute;
+  top: 2px;
+  right: 0;
+}
+
+section .form-group .form-item input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 5px;
+  margin: 0 10px;
 }
 
 section .form-group .form-item input[type="text"]:focus {
   border: none;
-  border-bottom: 2px solid #f11;
+  border: 1px solid #f11;
   outline: none;
+  background: lightgrey;
+  box-shadow: 1px 1px 20px grey;
 }
 
-section .form-group .form-item input[placeholder] {
+section .form-group .form-item input[placeholder]:hover {
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+
+section .form-group .form-item input::placeholder {
   line-height: 2.1rem;
   font-size: 1rem;
+  color: white;
 }
 
 section .form-group .form-item button {
@@ -76,6 +110,10 @@ section .data-group .data-item,section .data-group .data-item-1 {
   display: flex;
   width: 80%;
   margin: 0 auto;
+}
+
+section .data-group .data-item {
+  color: #fff;
 }
 
 section .data-group .data-item span{
@@ -108,7 +146,10 @@ section .data-group .data-item-1 span{
 }
 
 p#errPara {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid red;
   width: max-content;
-  margin: 0 auto;
+  margin: 0px auto;
+  margin-top: 10px;
+  position: relative;
+  transition: all 5s;
 }
