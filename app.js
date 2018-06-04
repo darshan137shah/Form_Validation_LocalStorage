@@ -42,7 +42,7 @@ button.addEventListener('click', function() {
 
   // fetching data and validation
   for(let data of dataList) {
-    if (data.type == "text" && data.value != "" && data.value != " ") {
+    if (data.type == "text" && data.value.trim() != "") {
       nodeObj[data.name] = data.value;
     } else if(data.type == "text") {
       val.push(data.name);
@@ -56,7 +56,7 @@ button.addEventListener('click', function() {
   }
 
   // after or for validation Promise
-  validationCheck = new Promise(function(resolve, reject) {
+  var validationCheck = new Promise(function(resolve, reject) {
         if (val.length >= 1) {
           reject(val);
         } else {
